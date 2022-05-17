@@ -6,18 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You're never getting out...</title>
-    <link href="../assets/build/main.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <link href="../../assets/build/main.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/x-icon">
 </head>
 
 <body class="newBG">
     <audio id="backgroundUnsettling" autoplay loop>
-        <source id="backgroundUnsettlingSrc" src="../assets/media/horror_2.mp3" type="audio/mp3">
+        <source id="backgroundUnsettlingSrc" src="../../assets/media/horror_2.mp3" type="audio/mp3">
     </audio>
 
     <section id="pinEnigmaSection">
 
-        <form id="keypadForm">
+        <form method="POST" action="../second-stage/secondStage.php" id="keypadForm">
+            <?php
+                echo '<p>' . var_dump($_POST) . '</p>';
+            ?>
             <div id="pinEnigma"
                 class="rounded-2 container d-flex-inline text-center m-auto justify-content-center align-items-start mt-5"
                 style="height: 60vh;">
@@ -53,10 +56,10 @@
 
         <p id="ThereWillBeConsequences" class="text-light noOpacity text-center mx-auto"></p>
         <div class="text-center mx-auto" value="There's Nothing To Be Seen Here... Go Away !!">
-            <img id="UncannyEgg" class="w-25 nodisplay mx-auto text-center" src="../assets/images/uncanny.png"
+            <img id="UncannyEgg" class="w-25 nodisplay mx-auto text-center" src="../../assets/images/uncanny.png"
                 alt="What is that ??">
             <audio id="UncannyEggAudio" value="GO BACK!">
-                <source id="UncannyEggAudioSrc" src="../assets/media/hate.mp3" type="audio/mp3">
+                <source id="UncannyEggAudioSrc" src="../../assets/media/hate.mp3" type="audio/mp3">
             </audio>
         </div>
     </section>
@@ -65,7 +68,7 @@
     
     <script crossorigin="anonymous" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JS/firstStage.js"></script>
+    <script src="../../JS/firstStage.js"></script>
 </body>
 
 </html>

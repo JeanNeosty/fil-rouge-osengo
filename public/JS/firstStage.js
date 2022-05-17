@@ -46,14 +46,12 @@ class Keypad {
     };
 
     buttonClear(e) {
-        if (pin.value.length >= 1 && pin.value.length <= 4) {
-            pin.value = ""
-        } else if ((pin.value.length >= 10 && hate === false) || (pin.value.length >= 10 && hate === true)) {
+        if ((pin.value.length >= 10 && hate === false) || (pin.value.length >= 10 && hate === true)) {
             e.preventDefault();
             pin.value = "I HATE YOU..";
             setTimeout(this.hate, 1000);
-
         } else {
+            pin.value = "";
             e.preventDefault();
         };
     };
@@ -61,6 +59,7 @@ class Keypad {
     buttonCheckValid(e) {
         if (pin.value == 1704) {
             this.isValid = true;
+            this.requestSecondStage(e);
         } else if (pin.value == 666 /* Why did you do that... */ ) {
             e.preventDefault();
             uncannyImage.style.display = "block";
@@ -75,14 +74,10 @@ class Keypad {
         } else {
             e.preventDefault();
             pin.value = "Try again";
-            setTimeout(this.buttonClear, 2000);
+            setTimeout(() => {
+                this.buttonClear(e);
+            }, 2000);
         };
-
-        if (this.isValid === true) {
-
-        } else {
-            e.preventDefault();
-        }
     };
     // WHAT ARE YOU DOING HERE ? GO BACK !
     hate() {
@@ -105,6 +100,23 @@ class Keypad {
         });
     };
     // THERE... WILL... BE... CONSEQUENCES.
+
+    // Get StepId for checkpoints.
+    requestSecondStage(e) {
+        if (this.isValid === true) {
+            const param = new FormData(keypadForm);
+            const request = fetch("actionsFirstStage.php", {
+                method: 'POST',
+                body: param
+            });
+            console.log(request);
+            request.then(manageAnswerKeypad).catch(keypadValidError);
+        } else {
+            console.log("ERROR OCCURED. CODE ISN'T VALID.");
+            e.preventDefault();
+        };
+    };
+
 };
 
 // Create instance of keypad's enigma
@@ -113,6 +125,29 @@ const enigmaKeypad = new Keypad(false);
 // Event Listeners
 arrow.addEventListener('click', loadDoors);
 
+// Manage answer on right code in keypad
+function manageAnswerKeypad(rep) {
+    const textReceipt = rep.text();
+    console.log(rep);
+    textReceipt.catch(keypadValidError);
+}
+
+// If right code entered but error occurs
+function keypadValidError(textErr) {
+    // If textErr isn't undefined
+    if (textErr !== undefined) {
+        pin.value = textErr;
+        setTimeout(() => {
+            enigmaKeypad.buttonClear(e);
+        }, 3000);
+        // If textErr is undefined
+    } else {
+        console.log("Error occured");
+        () => {
+            enigmaKeypad.buttonClear(e);
+        };
+    }
+};
 
 // Choice Doors Section
 function loadDoors() {

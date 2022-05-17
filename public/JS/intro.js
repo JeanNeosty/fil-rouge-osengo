@@ -73,10 +73,10 @@ function gunshotClick() {
 }
 
 // Form for Name
-function submitForm() {
+function submitForm() { 
     const param = new FormData(wakeyForm);
-    const request = fetch("PHP/actionsIntro.php", {
-        method: "POST",
+    const request = fetch("PHP/intro/actionsIntro.php", {
+        method: 'POST',
         body: param
     });
     request.then(manageAnswerWakey).catch(showErrorWakey);
@@ -87,6 +87,7 @@ function manageAnswerWakey(rep) {
     textReceipt.catch(showErrorWakey);
 }
 
-function showErrorWakey(texteErr) {
-    wakeyBtn.textContent = texteErr;
+function showErrorWakey(textErr) {
+    wakeyBtn.textContent = textErr;
+    console.log(textErr);
 }

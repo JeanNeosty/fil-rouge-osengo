@@ -71,6 +71,9 @@ class MySQL {
         $req = $this->pdo->prepare($sql);
         return $req->execute($parametres); 
     }
+    // UPDATE VALUE FROM TABLE
+    function update($sql, $parametres) {
+        $req = $this->pdo->prepare($sql);
+        return $req->execute($parametres); 
+    }
 }
-
-?>
