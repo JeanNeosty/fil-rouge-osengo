@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Endless</title>
+    <link href="./assets/build/main.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+</head>
+
+<body id="bodyHtml">
+    <!-- Landing Page -->
+    <section id="landingPage">
+        <!-- Toggleable Blood Splatter -->
+        <img class="nodisplay text-center mx-auto" id="bloodSplatter" src="assets/images/blood_splatter.png"
+            alt="You died ?">
+        <!-- Form to go to the first stage -->
+        <form id="wakeUpForm" method="POST" action="PHP/firstStage.php">
+            <div class="my-3 text-center m-auto row justify-content-center align-items-center">
+                <div class="col-auto">
+                    <label for="inputName" id="inputNameLabel" class="nodisplay form-label textAnimYellow">What's your
+                        name ?</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" name="sessionname" class="nodisplay form-control textAnim" id="inputName"
+                        aria-describedby="nameInput" required>
+                </div>
+            </div>
+            <button class="nodisplay btn text-center mx-auto mt-3 textAnim" id="wakeUpBtn" type="submit">Wake up..
+                Please!</button>
+        </form>
+
+
+        <!-- Page Content -->
+        <audio id="backgroundMusic" autoplay loop>
+            <source id="backgroundMusicSrc" src="assets/media/landing_lofi.mp3" type="audio/mp3">
+        </audio>
+        <audio id="heartCrackSfx">
+            <source id="heartCrackSfxSrc" src="assets/media/heart_crack.mp3" type="audio/mp3">
+        </audio>
+
+        <div id="heartDiv"
+            class="text-center m-auto container d-flex flex-direction-column justify-content-center align-items-center"
+            style="height: 90vh;">
+            <img class="w-25" id="heartMain" src="assets/images/heart_main.png" alt="Heart">
+            <img class="w-25" id="heartBrokenMain" src="assets/images/heart_broken_main.png" alt="??">
+        </div>
+        <!-- Appears after breaking heart -->
+        <div class="choice">
+            <p class="nodisplay text-center justify-content-center align-items-center textAnim" id="heartBreakText">Why did you
+                break my
+                heart ?</p>
+            <button class="nodisplay btn text-center mx-auto" id="heartBreakAnswerBtn" type="button">I don't
+                know...</button>
+        </div>
+
+        <audio id="gunshotSfx">
+            <source id="gunshotSfxSrc" src="assets/media/gunshot.mp3" type="audio/mp3">
+        </audio>
+
+        <p id="deathText" class="nodisplay text-center m-auto textAnimRed">You're coming with me...</p>
+
+
+    </section>
+
+    <script crossorigin="anonymous" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/intro.js"></script>
+
+</body>
+
+</html>

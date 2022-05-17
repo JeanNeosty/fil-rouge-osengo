@@ -1,0 +1,254 @@
+// fichier de variables custom
+@import "./includes/styles";
+// Bootstrap and its default variables
+@import '../node_modules/bootstrap/scss/bootstrap';
+// Fonts Custom
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600&display=swap'); // Noto Sans
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap'); // Nosifer
+
+//CUSTOM CSS
+
+body {
+    background:
+        linear-gradient(to right, $primary, $light, $primary) no-repeat center center fixed;
+    background-size: cover;
+}
+
+// Landing Page
+#heartMain:hover {
+    cursor: pointer;
+}
+
+#heartBrokenMain {
+    display: none;
+}
+
+// Heart Broken
+.nodisplay {
+    display: none;
+}
+
+.textAnim {
+    color: $light;
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(to right, $primary, $dark, $primary);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 4s linear infinite, opacityAnimate 4s linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, .1);
+}
+
+.textAnim input {
+    text-transform: none;
+}
+
+#arrowKeypad {
+    width: 60px;
+}
+
+
+.textAnimRed {
+    color: $light;
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(to right, $danger, $dark, $danger);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 3.5s linear infinite, animateRed 7s linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, .1);
+}
+
+.textAnimYellow {
+    color: $light;
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(to right, $warning, $dark, $warning);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 4s linear infinite, opacityAnimate 2.5s linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, .1);
+}
+
+.choice button {
+    outline: 2px solid;
+    background-color: $light;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    overflow: hidden;
+    background: linear-gradient(to right, $primary, $dark, $primary);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 4s linear infinite, btnAnimate 6s linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, .1);
+}
+
+.choice button:hover {
+    color: $light;
+}
+
+#bloodSplatter {
+    animation: opacityAnimate 2.5s linear;
+    max-width: 40%;
+}
+
+#wakeUpBtn {
+    outline: 2px solid $dark;
+}
+
+#wakeUpBtn:hover {
+    outline-color: $light;
+}
+
+// First Stage Style
+
+.newBG {
+    background:
+        linear-gradient(to right, $dark, $black, $dark) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.noOpacity {
+    opacity: 0;
+}
+
+.btnAnimYellow {
+    color: $light;
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(to right, $warning, $dark, $warning);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animateGlow 4s linear infinite, opacityAnimate 2.5s linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, .1);
+}
+
+#pinEnigma {
+    padding: 10px;
+    font-size: 24px;
+    background: $dark;
+    border: 1px solid $light;
+    user-select: none;
+    max-width: 360px;
+    min-height: 415px; 
+}
+
+#pinEnigmaText {
+    margin: 8px auto 8px auto;
+    display: block;
+    font-size: 0.6em;
+    letter-spacing: 5px;
+    background: $warning;
+    cursor: default;
+}
+
+.btnKeypad, #keypadCancel, #keypadConfirm {
+    width: 44px;
+    height: 44px;
+    margin: 10px;
+    border-radius: 40%;
+    background: $light;
+    color: $primary;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 1px solid $primary;
+
+    &:active {
+        opacity: 0.5;
+    }
+}
+
+// Keyframes for the text animations
+@keyframes animate {
+    0% {
+        background-position: -500%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}
+
+@keyframes animateGlow {
+    0% {
+        background-position: 180%;
+    }
+    100% {
+        background-position: 250%;
+    }
+}
+
+@keyframes animateRed {
+    0% {
+        background-position: -500%;
+        opacity: 0.1;
+    }
+
+    15% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        background-position: 500%;
+        opacity: 0;
+    }
+}
+
+@keyframes btnAnimate {
+    0% {
+        background-position: -500%;
+        opacity: 0;
+    }
+
+    45% {
+        opacity: 0;
+    }
+
+    100% {
+        background-position: 500%;
+        opacity: 1;
+    }
+}
+
+@keyframes opacityAnimate {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.1;
+    }
+
+    70% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
