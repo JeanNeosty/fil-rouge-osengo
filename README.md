@@ -1,5 +1,16 @@
-# fil-rouge-osengo
+# Project
+Project for my web training class.
 
-Made in the context of a web dev training. Final project, currently in progress
 
-#### By Jean "Neosty" B.
+# Download the packages
+```bash
+npm i
+```
+
+
+
+
+### Run SCSS
+```bash
+npm run sass-watch-dev
+```

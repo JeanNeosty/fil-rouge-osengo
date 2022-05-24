@@ -1,3 +1,6 @@
 /.idea
 /node_modules
 /public/assets/build/*.css
+/elements/DB
+/elements/mysql.php
+/.htaccess
